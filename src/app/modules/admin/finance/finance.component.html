@@ -1,0 +1,150 @@
+<div class="flex flex-col flex-auto w-full p-8 xs:p-2">
+
+    <div class="flex flex-wrap w-full">
+
+        <div class="flex items-center justify-between w-full my-4 px-4 xs:pr-0">
+            <div class="mr-6">
+                <h2 class="m-0">Finance dashboard</h2>
+                <div class="text-secondary tracking-tight">Keep track of your financial status</div>
+            </div>
+        </div>
+
+        <!-- Recent transactions table -->
+        <div class="flex flex-auto w-full overflow-hidden lt-xl:w-full">
+            <div class="flex flex-col flex-auto bg-card shadow-md rounded overflow-hidden">
+                <div class="p-6">
+                    <div class="font-bold text-md text-secondary uppercase tracking-wider">Recent transactions</div>
+                    <div class="text-sm text-hint font-medium">1 pending, 4 completed</div>
+                </div>
+                <div class="overflow-auto">
+                    <table class="w-full bg-transparent"
+                           mat-table
+                           matSort
+                           [dataSource]="recentTransactionsDataSource"
+                           [trackBy]="trackByFn"
+                           #recentTransactionsTable>
+
+                        <!-- Transaction ID -->
+                        <ng-container matColumnDef="transactionId">
+                            <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t"
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef>
+                                <span class="whitespace-no-wrap">
+                                    Transaction ID
+                                </span>
+                            </th>
+                            <td mat-cell
+                                *matCellDef="let transaction">
+                                <span class="pr-6 font-medium text-sm text-secondary whitespace-no-wrap">
+                                    {{transaction.transactionId}}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Date -->
+                        <ng-container matColumnDef="date">
+                            <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t"
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef>
+                                <span class="whitespace-no-wrap">
+                                    Date
+                                </span>
+                            </th>
+                            <td mat-cell
+                                *matCellDef="let transaction">
+                                <span class="pr-6 whitespace-no-wrap">
+                                    {{transaction.date | date:'MMM dd, y'}}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Name -->
+                        <ng-container matColumnDef="name">
+                            <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t"
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef>
+                                <span class="whitespace-no-wrap">
+                                    Name
+                                </span>
+                            </th>
+                            <td mat-cell
+                                *matCellDef="let transaction">
+                                <span class="pr-6 whitespace-no-wrap">
+                                    {{transaction.name}}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Amount -->
+                        <ng-container matColumnDef="amount">
+                            <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t"
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef>
+                                <span class="whitespace-no-wrap">
+                                    Amount
+                                </span>
+                            </th>
+                            <td mat-cell
+                                *matCellDef="let transaction">
+                                <span class="pr-6 font-medium whitespace-no-wrap">
+                                    {{transaction.amount | currency:'USD'}}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Status -->
+                        <ng-container matColumnDef="status">
+                            <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t"
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef>
+                                <span class="whitespace-no-wrap">
+                                    Status
+                                </span>
+                            </th>
+                            <td mat-cell
+                                *matCellDef="let transaction">
+                                <span class="inline-flex items-center font-bold text-xs px-2 py-2px rounded-full tracking-wide uppercase"
+                                      [ngClass]="{'red-200': transaction.status === 'pending',
+                                      'green-200': transaction.status === 'completed'}">
+                                    <span class="w-2 h-2 rounded-full mr-2"
+                                          [ngClass]="{'bg-red': transaction.status === 'pending',
+                                      'bg-green': transaction.status === 'completed'}"></span>
+                                    <span class="pr-2px leading-relaxed whitespace-no-wrap">{{transaction.status}}</span>
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Footer -->
+                        <ng-container matColumnDef="recentOrdersTableFooter">
+                            <td class="px-3 border-none"
+                                mat-footer-cell
+                                *matFooterCellDef
+                                colspan="6">
+                                <button mat-button
+                                        [color]="'primary'">
+                                    See all transactions
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row
+                            *matHeaderRowDef="recentTransactionsTableColumns"></tr>
+                        <tr class="order-row h-16"
+                            mat-row
+                            *matRowDef="let row; columns: recentTransactionsTableColumns;"></tr>
+                        <tr class="h-16"
+                            mat-footer-row
+                            *matFooterRowDef="['recentOrdersTableFooter']"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
