@@ -39,6 +39,21 @@ export const defaultNavigation: TreoNavigationItem[] = [
         ]
     },
     {
+        id      : 'starter1',
+        title   : 'Client',
+        subtitle: 'Stand-alone client features',
+        type    : 'group',
+        icon    : 'apps',
+        children: [
+            {
+                id   : 'profile',
+                title: 'Profile',
+                type : 'basic',
+                link : '/profile'
+            }
+        ]
+    },
+    {
         id      : 'starter2',
         title   : 'Products',
         subtitle: 'Shows the available items',
@@ -46,17 +61,17 @@ export const defaultNavigation: TreoNavigationItem[] = [
         icon    : 'apps',
         children: [
             {
-                id   : 'starter.example',
+                id   : 'starter.example1',
                 title: 'Trees',
                 type : 'basic'
             },
             {
-                id   : 'starter.dummy.1',
+                id   : 'starter.dummy.2',
                 title: 'Plants',
                 type : 'basic'
             },
             {
-                id   : 'starter.dummy.2',
+                id   : 'starter.dummy.3',
                 title: 'Vegetables',
                 type : 'basic'
             }
@@ -129,7 +144,14 @@ export const futuristicNavigation: TreoNavigationItem[] = [
         icon : 'heroicons:user-group',
         type : 'basic',
         link : '/sign-in'
-    }
+    },
+    {
+        id   : 'profile',
+        title: 'Profile',
+        icon : 'heroicons:calendar',
+        type : 'basic',
+        link : '/profile'
+    },
 ];
 export const horizontalNavigation: TreoNavigationItem[] = [
     {

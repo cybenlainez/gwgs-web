@@ -76,7 +76,8 @@ export const appRoutes: Route[] = [
         },
         children: [
 
-            {path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.module').then(m => m.AuthSignInModule)}
+            {path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.module').then(m => m.AuthSignInModule)},
+            {path: 'profile', loadChildren: () => import('app/modules/profile/profile.module').then(m => m.ProfileModule)}
 
             // 404 & Catch all
             // {path: '404-not-found', pathMatch: 'full', loadChildren: () => import('app/modules/admin/pages/errors/error-404/error-404.module').then(m => m.Error404Module)},

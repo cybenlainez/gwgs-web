@@ -85,63 +85,6 @@ export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
     }
 
     // -----------------------------------------------------------------------------------------------------
-    // @ Private methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Prepare the chart data from the data
-     *
-     * @private
-     */
-    private _prepareChartData(): void
-    {
-        // Account balance
-        this.accountBalanceOptions = {
-            chart  : {
-                animations: {
-                    speed           : 400,
-                    animateGradually: {
-                        enabled: false
-                    }
-                },
-                fontFamily: 'inherit',
-                foreColor : 'inherit',
-                width     : '100%',
-                height    : '100%',
-                type      : 'area',
-                sparkline : {
-                    enabled: true
-                }
-            },
-            colors : ['#A3BFFA', '#667EEA'],
-            fill   : {
-                colors : ['#CED9FB', '#AECDFD'],
-                opacity: 0.5,
-                type   : 'solid'
-            },
-            series : this.data.accountBalance.series,
-            stroke : {
-                curve: 'straight',
-                width: 2
-            },
-            tooltip: {
-                theme: 'dark',
-                x    : {
-                    format: 'MMM dd, yyyy'
-                },
-                y    : {
-                    formatter: (value) => {
-                        return value + '%';
-                    }
-                }
-            },
-            xaxis  : {
-                type: 'datetime'
-            }
-        };
-    }
-
-    // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
 

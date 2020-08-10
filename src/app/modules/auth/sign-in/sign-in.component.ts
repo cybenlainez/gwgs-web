@@ -102,13 +102,13 @@ export class AuthSignInComponent implements OnInit
                 this.signInForm.enable();
 
                 // Show the error message
-                this.message = {
-                    appearance: 'outline',
-                    content   : 'Invalid username/password.',
-                    shake     : true,
-                    showIcon  : false,
-                    type      : 'error'
-                };
+                // this.message = {
+                //     appearance: 'outline',
+                //     content   : 'Invalid username/password.',
+                //     shake     : true,
+                //     showIcon  : false,
+                //     type      : 'error'
+                // };
             });
     }
 }
