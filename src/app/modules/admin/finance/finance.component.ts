@@ -5,6 +5,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ApexOptions } from 'ng-apexcharts';
 import { FinanceService } from 'app/modules/admin/finance/finance.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
     selector       : 'finance',
@@ -33,7 +35,7 @@ export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
      */
     constructor(
         private _financeService: FinanceService
-    )
+    ,public httpClient: HttpClient)
     {
         // Set the private defaults
         this._unsubscribeAll = new Subject();
@@ -41,6 +43,13 @@ export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
         // Set the defaults
         this.recentTransactionsDataSource = new MatTableDataSource();
         this.recentTransactionsTableColumns = ['transactionId', 'date', 'name', 'amount', 'status'];
+    }
+
+
+    sendGetRequest(){
+        this.httpClient.get('https://localhost:44369/api/AdminUser/GetAllAdminUserList').subscribe((res)=>{
+            console.log(res);
+        });
     }
 
     // -----------------------------------------------------------------------------------------------------
