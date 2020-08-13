@@ -45,7 +45,8 @@ export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
         this.recentTransactionsTableColumns = ['transactionId', 'date', 'name', 'amount', 'status'];
     }
 
-
+ 
+    
     sendGetRequest(){
         this.httpClient.get('https://localhost:44369/api/AdminUser/GetAllAdminUserList').subscribe((res)=>{
             console.log(res);
