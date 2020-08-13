@@ -14,7 +14,7 @@ export class ProfileComponent
      * Constructor
      */
     constructor(public httpClient: HttpClient){
-        
+         
     }
 
     sendGetRequest(){
