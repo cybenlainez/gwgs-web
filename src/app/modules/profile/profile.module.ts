@@ -12,6 +12,8 @@ import { SharedModule } from 'app/shared/shared.module';
 import { ProfileComponent } from 'app/modules/profile/profile.component';
 import { profileRoutes } from 'app/modules/profile/profile.routing';
 
+
+
 @NgModule({
     declarations: [
         ProfileComponent
@@ -30,5 +32,7 @@ import { profileRoutes } from 'app/modules/profile/profile.routing';
     ]
 })
 export class ProfileModule
-{
+{ 
+   
+
 }

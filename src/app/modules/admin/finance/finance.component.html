@@ -6,8 +6,15 @@
             <div class="mr-6">
                 <h2 class="m-0">Finance dashboard</h2>
                 <div class="text-secondary tracking-tight">Keep track of your financial status</div>
+                <button class="px-6 mt-8"
+                        mat-flat-button
+                        [color]="'primary'" (click)="sendGetRequest()">  Test API GetListOF User</button>
+                 
+        
             </div>
         </div>
+
+        <!--Changes-->
 
         <!-- Recent transactions table -->
         <div class="flex flex-auto w-full overflow-hidden lt-xl:w-full">
