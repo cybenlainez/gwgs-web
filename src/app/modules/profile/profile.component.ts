@@ -13,13 +13,7 @@ export class ProfileComponent
     /**
      * Constructor
      */
-    constructor(public httpClient: HttpClient){
+    constructor(){
          
-    }
-
-    sendGetRequest(){
-        this.httpClient.get('https://localhost:44369/api/AdminUser/GetAllAdminUserList').subscribe((res)=>{
-            console.log(res);
-        });
     }
 }

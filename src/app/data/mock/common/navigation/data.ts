@@ -10,14 +10,14 @@ export const defaultNavigation: TreoNavigationItem[] = [
         icon    : 'apps',
         children: [
             {
-                id   : 'starter.example.1',
-                title: 'Users 1 (Finance)',
+                id   : 'users',
+                title: 'Users',
                 type : 'basic',
-                link : '/finance'
+                link : '/users'
             },
             {
                 id   : 'starter.example.2',
-                title: 'Users 2 (Contacts)',
+                title: 'Contacts',
                 type : 'basic',
                 link : '/contacts'
             },
@@ -114,14 +114,14 @@ export const compactNavigation: TreoNavigationItem[] = [
 export const futuristicNavigation: TreoNavigationItem[] = [
     {
         id   : 'starter.example.1',
-        title: 'Users 1 (Finance)',
+        title: 'Users',
         type : 'basic',
         icon : 'heroicons:chart-pie',
-        link : '/finance'
+        link : '/users'
     },
     {
         id   : 'starter.example.2',
-        title: 'Users 2 (Contacts)',
+        title: 'Contacts',
         type : 'basic',
         icon : 'heroicons:chart-pie',
         link : '/contacts'

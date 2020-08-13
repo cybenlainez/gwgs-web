@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\admin",
+    "\\src\\app\\modules\\admin\\finance",
+    "\\src\\app\\modules\\profile"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\src\\app\\modules\\admin\\finance\\finance.component.ts",
   "PreviewInSolutionExplorer": false
 }

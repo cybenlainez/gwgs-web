@@ -67,7 +67,7 @@ export class AuthSignInComponent implements OnInit
 
 
 
-        this._router.navigateByUrl('/finance');
+        this._router.navigateByUrl('/users');
 
 
 

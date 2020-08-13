@@ -57,7 +57,6 @@ export const appRoutes: Route[] = [
             {path: 'home', loadChildren: () => import('app/modules/landing/home/home.module').then(m => m.LandingHomeModule)},
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
             {path: 'users', loadChildren: () => import('app/modules/admin/users/users.module').then(m => m.UsersModule)},
-            {path: 'finance', loadChildren: () => import('app/modules/admin/finance/finance.module').then(m => m.FinanceModule)},
             {path: 'contacts', loadChildren: () => import('app/modules/admin/contacts/contacts.module').then(m => m.ContactsModule)}
         ]
     },

@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { FinanceService } from 'app/modules/admin/finance/finance.service';
+import { UsersService } from 'app/modules/admin/users/users.service';
 
 @Injectable({
     providedIn: 'root'
 })
-export class FinanceResolver implements Resolve<any>
+export class UsersResolver implements Resolve<any>
 {
     /**
      * Constructor
      *
-     * @param {FinanceService} _financeService
+     * @param {UsersService} _usersService
      */
     constructor(
-        private _financeService: FinanceService
+        private _usersService: UsersService
     )
     {
     }
@@ -31,6 +31,6 @@ export class FinanceResolver implements Resolve<any>
      */
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>
     {
-        return this._financeService.getData();
+        return this._usersService.getData();
     }
 }
