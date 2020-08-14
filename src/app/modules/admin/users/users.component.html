@@ -154,9 +154,10 @@
 
                         <tr mat-header-row
                             *matHeaderRowDef="recentTransactionsTableColumns"></tr>
-                        <tr class="order-row h-16"
+                        <tr class="order-row h-16 user-row"
                             mat-row
-                            *matRowDef="let row; columns: recentTransactionsTableColumns;"></tr>
+                            *matRowDef="let row; columns: recentTransactionsTableColumns;"
+                            (click)="selectUser(row.userId)"></tr>
                         <tr class="h-16"
                             mat-footer-row
                             *matFooterRowDef="['recentOrdersTableFooter']"></tr>

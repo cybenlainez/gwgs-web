@@ -1,3 +1,27 @@
-users {
+@import 'treo';
 
+users {
+    
+}
+
+@include treo-theme {
+
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    $primary: map-get($theme, primary);
+    $is-dark: map-get($theme, is-dark);
+
+    tr.user-row {
+
+        cursor: pointer;
+
+        &:hover,
+        &.selected {
+            @if ($is-dark) {
+                background: rgba(0, 0, 0, 0.05);
+            } @else {
+                background: map-get($primary, 50);
+            }
+        }
+    }
 }
