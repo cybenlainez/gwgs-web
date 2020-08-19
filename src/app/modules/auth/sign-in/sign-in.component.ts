@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { TreoAnimations } from '@treo/animations';
 import { AuthService } from 'app/core/auth/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient, HttpParams  } from '@angular/common/http';
 
 @Component({
     selector     : 'auth-sign-in',
@@ -28,7 +29,8 @@ export class AuthSignInComponent implements OnInit
         private _activatedRoute: ActivatedRoute,
         private _authService: AuthService,
         private _formBuilder: FormBuilder,
-        private _router: Router
+        private _router: Router,
+        public httpClient: HttpClient
     )
     {
         // Set the defaults
@@ -47,7 +49,7 @@ export class AuthSignInComponent implements OnInit
         // Create the form
         this.signInForm = this._formBuilder.group({
             email     : ['jonathan.barcelona@gmail.com'],
-            password  : ['admin'],
+            password  : ['admin@123'],
             rememberMe: ['']
         });
     }
@@ -64,10 +66,33 @@ export class AuthSignInComponent implements OnInit
 
 
 
+        // this.httpClient.post('https://localhost:44369/api/AdminUser/LoginUser', body).subscribe((res)=>{
+        //     console.log(res);
+        // });
+
+        var body = JSON.stringify({Email: this.signInForm.value.email, Password: this.signInForm.value.password});
+
+        this.httpClient.post('https://localhost:44369/api/AdminUser/LoginUser', body).subscribe(data  => {
+                console.log('POST Request is successful', data);
+            },
+            error  => {        
+                console.log('Error', error);        
+            }        
+        );
 
 
 
-        this._router.navigateByUrl('/users');
+
+
+
+
+
+
+
+
+
+
+        // this._router.navigateByUrl('/users');
 
 
 
@@ -91,10 +116,10 @@ export class AuthSignInComponent implements OnInit
                 // The '/signed-in-redirect' is a dummy url to catch the request and redirect the user
                 // to the correct page after a successful sign in. This way, that url can be set via
                 // routing file and we don't have to touch here.
-                const redirectURL = this._activatedRoute.snapshot.queryParamMap.get('redirectURL') || '/signed-in-redirect';
+                // const redirectURL = this._activatedRoute.snapshot.queryParamMap.get('redirectURL') || '/signed-in-redirect';
 
                 // Navigate to the redirect url
-                this._router.navigateByUrl(redirectURL);
+                // this._router.navigateByUrl(redirectURL);
 
             }, (response) => {
 
